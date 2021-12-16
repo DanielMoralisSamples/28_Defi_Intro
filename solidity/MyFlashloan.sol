@@ -1,13 +1,19 @@
 pragma solidity ^0.6.6;
 
-import { FlashLoanReceiverBase } from "FlashLoanReceiverBase.sol";
-import { ILendingPool, ILendingPoolAddressesProvider, IERC20 } from "Interfaces.sol";
-import { SafeMath } from "Libraries.sol";
-import "./Ownable.sol";
+import "./FlashLoanReceiverBase.sol";
+import "../../interfaces/v2/ILendingPoolAddressesProviderV2.sol";
+import "../../interfaces/v2/ILendingPoolV2.sol";
+import "../../interfaces/IMockArbitrage.sol";
 
-contract ParametricFlashloan is FlashLoanReceiverBase, Withdrawable {
+contract FlashloanDemo is FlashLoanReceiverBaseV2, Withdrawable {
 
-    constructor(address _addressProvider) FlashLoanReceiverBase(_addressProvider) public {}
+    event UpdatedArbitrageContract (address oldArbitrageContract, address newArbitrageContract);
+    
+    IMockArbitrage arbitrageContract;
+
+    constructor(address _addressProvider, address _arbitrageContract) FlashLoanReceiverBaseV2(_addressProvider) public {
+        arbitrageContract = IMockArbitrage(_arbitrageContract);
+    }
 
     /**
      * @dev This function must be called only be the LENDING_POOL and takes care of repaying
@@ -40,13 +46,14 @@ contract ParametricFlashloan is FlashLoanReceiverBase, Withdrawable {
         // the flashloaned amounts + premiums.
         // Therefore ensure your contract has enough to repay
         // these amounts.
+        arbitrageContract.takeArbitrage(assets[0]);
         
         // Approve the LendingPool contract allowance to *pull* the owed amount
         for (uint i = 0; i < assets.length; i++) {
             uint amountOwing = amounts[i].add(premiums[i]);
             IERC20(assets[i]).approve(address(LENDING_POOL), amountOwing);
         }
-        
+
         return true;
     }
 
@@ -76,7 +83,7 @@ contract ParametricFlashloan is FlashLoanReceiverBase, Withdrawable {
     }
 
     /*
-     *  Flash loan amount of `_asset`
+     *  Flash loan wei amount worth of `_asset`
      */
     function flashloan(address _asset, uint256 _amount) public onlyOwner {
         bytes memory data = "";
@@ -89,5 +96,11 @@ contract ParametricFlashloan is FlashLoanReceiverBase, Withdrawable {
         amounts[0] = amount;
 
         _flashloan(assets, amounts);
+    }
+
+    function setArbitrageContract (address _newArbitrageContract) external {
+        address _previousArbitrageContract = address(arbitrageContract);
+        arbitrageContract = IMockArbitrage(_newArbitrageContract);
+        emit UpdatedArbitrageContract (_previousArbitrageContract, _newArbitrageContract);
     }
 }
