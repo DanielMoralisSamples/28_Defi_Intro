@@ -1,17 +1,18 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-import "./FlashLoanReceiverBase.sol";
-import "../../interfaces/v2/ILendingPoolAddressesProviderV2.sol";
-import "../../interfaces/v2/ILendingPoolV2.sol";
-import "../../interfaces/IMockArbitrage.sol";
+import { FlashLoanReceiverBase } from "./FlashloanReceiverBase.sol";
+import { ILendingPool, ILendingPoolAddressesProvider, IERC20, IMockArbitrage } from "./Interfaces.sol";
+import { SafeMath } from "./Libraries.sol";
+import { Withdrawable } from "./Withdrawable.sol";
 
-contract FlashloanDemo is FlashLoanReceiverBaseV2, Withdrawable {
+contract FlashloanDemo is FlashLoanReceiverBase, Withdrawable {
 
     event UpdatedArbitrageContract (address oldArbitrageContract, address newArbitrageContract);
     
     IMockArbitrage arbitrageContract;
 
-    constructor(address _addressProvider, address _arbitrageContract) FlashLoanReceiverBaseV2(_addressProvider) public {
+    constructor(address _addressProvider, address _arbitrageContract) FlashLoanReceiverBase(_addressProvider) public {
         arbitrageContract = IMockArbitrage(_arbitrageContract);
     }
 
