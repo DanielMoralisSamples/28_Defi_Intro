@@ -12,3 +12,9 @@
 - AVAX fuji:
     - aave_lending_pool_v2: "0x7fdC1FdF79BE3309bf82f4abdAD9f111A6590C0f"
     - wavax: "0xd00ae08403B9bbb9124bB305C09058E32C39A48c"
+# AVALANCHE FUJI Network
+Network Name: Avalanche Fuji Testnet
+New RPC URL: From your Moralis Speedy Nodes
+Chain ID: 43113
+Currency Symbol: AVAX
+Block Explorer URL: https://cchain.explorer.avax-test.network
