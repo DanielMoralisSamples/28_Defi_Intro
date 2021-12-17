@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Head Content-->
+        <title>Flashloan</title>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Links -->
+        <!-- Make It Pretty Import the Bootstrap stylesheet -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <main>
+            <div class="container mt-5">
+                <div class="form-group">
+                    <h2>🌌 Arbitrage Here 🔫</h2>
+                    <div class="input-group mb-3">
+                        <input disabled="True" id="tokenAmount" type="text" class="form-control" placeholder="">
+                    </div>
+                    <div>  
+                        <button class="btn btn-primary" id="takeArbitrage" onclick="takeArbitrage();">Let's Try</button>
+                    </div>
+                </div>
+                <hr>
+                <hr>      
+                <div class="form-group">
+                    <h2>🌌 Execute Flashloan 🔫</h2>
+                    <div class="input-group mb-3">
+                        <input id="flashLoanAmount" type="text" class="form-control" placeholder="What is the amount to flashloan">
+                    </div>
+                    <div>  
+                        <button class="btn btn-primary" id="flashloan" onclick="flashloan();">YOLO</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <h2>🌌 Clean Flashloan🔫</h2>
+                    <div class="input-group mb-3">
+                        <input disabled="True" id="tokenAmount" type="text" class="form-control" placeholder="">
+                    </div>
+                    <div>  
+                        <button class="btn btn-primary" id="withdraw" onclick="withdraw();">Let's Go</button>
+                    </div>
+                </div>          
+            </div>
+        </main>
+    <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+        <script src="static/logic.js"></script>
+    </body>
+</html>
