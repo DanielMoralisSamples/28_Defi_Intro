@@ -14,33 +14,34 @@
         <main>
             <div class="container mt-5">
                 <div class="form-group">
-                    <h2>🌌 Arbitrage Here 🔫</h2>
+                    <h1>💰 Arbitrage Here 💰</h1>
                     <div class="input-group mb-3">
-                        <input disabled="True" id="tokenAmount" type="text" class="form-control" placeholder="">
+                        <span class="input-group-text">Amount to Gain WAVAX</span>
+                        <input disabled="True" id="arbitrageAmount" type="text" class="form-control" placeholder="">
+                        <span class="input-group-text">Amount Needed to Take Arbitrage WAVAX</span>
+                        <input disabled="True" id="requiredAmount" type="text" class="form-control" placeholder="">
                     </div>
                     <div>  
-                        <button class="btn btn-primary" id="takeArbitrage" onclick="takeArbitrage();">Let's Try</button>
+                        <button class="btn btn-secondary" id="takeArbitrage" onclick="takeArbitrage();">Let's Try</button>
                     </div>
                 </div>
                 <hr>
+                <h1>Try with Flashloan</h1>
                 <hr>      
                 <div class="form-group">
-                    <h2>🌌 Execute Flashloan 🔫</h2>
+                    <h1>💸 Execute Flashloan 💸</h1>
                     <div class="input-group mb-3">
-                        <input id="flashLoanAmount" type="text" class="form-control" placeholder="What is the amount to flashloan">
+                        <input id="flashloanAmount" type="text" class="form-control" placeholder="What is the amount to flashloan">
                     </div>
                     <div>  
-                        <button class="btn btn-primary" id="flashloan" onclick="flashloan();">YOLO</button>
+                        <button class="btn btn-success" id="flashloan" onclick="flashloan();">Execute</button>
                     </div>
                 </div>
                 <hr>
                 <div class="form-group">
-                    <h2>🌌 Clean Flashloan🔫</h2>
-                    <div class="input-group mb-3">
-                        <input disabled="True" id="tokenAmount" type="text" class="form-control" placeholder="">
-                    </div>
+                    <h2>🧹 Clean Flashloan 🧹</h2>
                     <div>  
-                        <button class="btn btn-primary" id="withdraw" onclick="withdraw();">Let's Go</button>
+                        <button class="btn btn-success" id="withdraw" onclick="withdraw();">Clean</button>
                     </div>
                 </div>          
             </div>
