@@ -12,7 +12,6 @@ contract MockArbitrage is Withdrawable{
     event RequiredFundsChanged (uint previousRequiredFunds, uint newRequiredFunds);
 
     uint public requiredFunds;
-    //mapping address => uint arbitrages
 
     constructor (uint _requiredFunds) public {
         requiredFunds = _requiredFunds;
@@ -23,7 +22,7 @@ contract MockArbitrage is Withdrawable{
         uint _takerBalance = ERC20(_assetAddress).balanceOf(address(_taker));
         require (_takerBalance >= requiredFunds, "Not rich enough to take advantage of this arbitrage");
         uint _assetBalance = ERC20(_assetAddress).balanceOf(address(this));
-        ERC20(_assetAddress).safeTransfer(msg.sender, _assetBalance);
+        ERC20(_assetAddress).safeTransfer(_taker, _assetBalance);
         emit ArbitrageTaken(_taker, _takerBalance, _assetBalance);
     }
 
