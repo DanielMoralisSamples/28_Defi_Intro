@@ -3,9 +3,9 @@
 ![Aave Banner](box-img-sm.png)
 
 ##Adapted from 
-*[aave/code-examples-protocol](https://github.com/aave/code-examples-protocol) by [mrdavey](https://github.com/mrdavey/).*
-*[fifikobayashi/AaveV2-BatchFlashDemo](https://github.com/aave/code-examples-protocol) by [fifikobayashi](https://github.com/fifikobayashi).*
-*[PatrickAlphaC/aave-flashloan-mix](https://github.com/PatrickAlphaC/aave-flashloan-mix) by [PatrickAlphaC](https://github.com/PatrickAlphaC).*
+- *[aave/code-examples-protocol](https://github.com/aave/code-examples-protocol) by [mrdavey](https://github.com/mrdavey/).*
+- *[fifikobayashi/AaveV2-BatchFlashDemo](https://github.com/aave/code-examples-protocol) by [fifikobayashi](https://github.com/fifikobayashi).*
+- *[PatrickAlphaC/aave-flashloan-mix](https://github.com/PatrickAlphaC/aave-flashloan-mix) by [PatrickAlphaC](https://github.com/PatrickAlphaC).*
 
 ## Installation and Setup
 
